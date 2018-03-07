@@ -98,7 +98,7 @@ $(function() {
         container = $('.feed');
         loadFeed(0);
         done();
-      })
+      });
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -109,7 +109,7 @@ $(function() {
            expect(container.length).toBeGreaterThan(0);
            //Adding the done to async call.
            done();
-         })
+         });
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function(){

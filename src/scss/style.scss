@@ -1,6 +1,6 @@
 *,
 *:after,
-*:before: {
+*:before {
     box-sizing: inherit;
 }
 
@@ -13,11 +13,12 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     margin: 0;
+    background-color: white;
 }
 
 a {
     text-decoration: none;
-    color: #111;
+    color: #211;
 }
 
 a:hover h2 {

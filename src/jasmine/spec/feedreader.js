@@ -27,9 +27,9 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
+        /* This tests whether or not the URL
+         * property is set within all indexes from
+         * the allFeeds JSON object.
          */
         it('URL properly set', function(){
           for(let i = 0; i < allFeeds.length; i++){
@@ -40,9 +40,9 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
+        /* This tests whether or not the Name
+         * property is set within all indexes from
+         * the allFeeds JSON object.
          */
         it('Name properly set',function(){
           for(let i = 0; i < allFeeds.length; i++){
@@ -54,23 +54,22 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    /* "The menu" Test Suite */
     describe('The menu',function(){
 
 
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+        /* This tests whether or not the menu HTML
+         * element is hidden to the user by default.
          */
          it('menu is hidden by default', function(){
-           expect(document.querySelector('body').className).toBe('menu-hidden');
+           const elem = document.querySelector('body');
+
+           expect(hasClass(elem,'menu-hidden')).toBe(true);
          });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+         /* This tests that when the user clicks on
+          * the menu icon link, the menu is shown to * the user. And if menu icon clicked
+          * again, the menu is hidden.
           */
           it('menu hides and shows when clicked', function(){
             //clicks the icon
@@ -88,7 +87,7 @@ $(function() {
           });
 
     });
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* Initial Entries test suite */
     describe('Initial Entries',function(){
       //Set the container variable
       let container;
@@ -99,19 +98,18 @@ $(function() {
         loadFeed(0);
         done();
       });
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+
+         /*This test ensures that when the the feed is
+          * loaded, at least 1 element (entry) exists
+          * within the feed container.
+          */
          it('async load feed is providing data',function(done){
            expect(container.length).toBeGreaterThan(0);
            //Adding the done to async call.
            done();
          });
     });
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* New Feed Test Suite */
     describe('New Feed Selection', function(){
       beforeEach(function(done){
         setTimeout(function(){
@@ -119,9 +117,9 @@ $(function() {
           done();
         },2500);
       });
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
+        /* This test ensures that when properties
+         * are set, they are all unique and change
+         * as the feed continues to be loaded.
          */
          it('new feed is loaded properly', function(){
            //Gather all entries

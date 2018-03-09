@@ -62,9 +62,7 @@ $(function() {
          * element is hidden to the user by default.
          */
          it('menu is hidden by default', function(){
-           const elem = document.querySelector('body');
-
-           expect(hasClass(elem,'menu-hidden')).toBe(true);
+           expect($('body').hasClass('menu-hidden')).toBe(true);
          });
 
          /* This tests that when the user clicks on
@@ -76,13 +74,13 @@ $(function() {
             document.querySelector('.menu-icon-link').click();
 
             //Tests when menu is showing
-            expect(document.querySelector('body').className).toBe('');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
             //clicks the menu icon again
             document.querySelector('.menu-icon-link').click();
 
             //Tests whether the menu-hidden class is there again
-            expect(document.querySelector('body').className).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
 
           });
 
@@ -90,28 +88,35 @@ $(function() {
     /* Initial Entries test suite */
     describe('Initial Entries',function(){
       //Set the container variable
-      let container;
+      let entries;
 
       //Ensure the async function runs before conducting tests
       beforeEach(function(done){
-        container = $('.feed');
+        //@TODO use promises instead
+        setTimeout(function(){
+        //Checks for children elements of feed (as the parent)
+        entries = document.querySelector('.feed').children;
+      
         loadFeed(0);
         done();
+        },2000);
       });
 
          /*This test ensures that when the the feed is
           * loaded, at least 1 element (entry) exists
           * within the feed container.
           */
-         it('async load feed is providing data',function(done){
-           expect(container.length).toBeGreaterThan(0);
-           //Adding the done to async call.
-           done();
+         it('async load feed is providing data',function(){
+
+           //Ensures that entries length is greather than 0
+           expect(entries.length).toBeGreaterThan(0);
+
          });
     });
     /* New Feed Test Suite */
     describe('New Feed Selection', function(){
       beforeEach(function(done){
+        //@TODO use promises instead
         setTimeout(function(){
           loadFeed(0);
           done();

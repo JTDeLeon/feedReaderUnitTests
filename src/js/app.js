@@ -131,16 +131,3 @@ $(function() {
         $('body').toggleClass('menu-hidden');
     });
 }());
-
-//Determines if a element has a specific class with class list
-function hasClass(element, className) {
-  const classList = element.classList;
-
-  for(let i = 0; i<classList.length; i++){
-    if(classList[i] === className){
-      return true;
-    }
-  }
-
-  return false;
-}
